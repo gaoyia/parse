@@ -1,8 +1,13 @@
+
 ## uParse 修复说明
+1.5 
+
+* 由于需要配置npm名称，又改名了，各位老用户对不住了
+* 添加了git和npm项目地址
+* 段落字体大小改为1em
+* 给图片添加了display:block;修复了在段落中有text-indent的时候图片也缩进的问题
+
 1.3
-* 修复h1~h6标签无法添加样式的问题
-  由于插件上传命名问题在目录上多加了一个n，请注意
-1.2
 * 修复h1~h6标签无法添加样式的问题
 
 1.1版
@@ -68,7 +73,7 @@
 </template>
 
 <script>
-import uParse from '@/components/un-parse/u-parse.vue'//由于插件上传命名问题在目录上加了一个n
+import uParse from '@/components/gaoyia/parse.vue'
 
 export default {
   components: {
@@ -92,7 +97,7 @@ export default {
 
 //在APP.vue中引入，否则样式不能生效
 <style>
-@import url("/components/un-parse/u-parse.css");//由于插件上传命名问题在目录上加了一个n
+@import url("/components/gaoyia/parse.css");
 </style>
 ```
 
@@ -107,7 +112,7 @@ npm install marked
 
 ``` js
 import marked from 'marked'
-import uParse from '@/components/un-parse/u-parse.vue'//由于插件上传命名问题在目录上加了一个n
+import uParse from '@/components/gaoyia/parse.vue'
 
 export default {
   components: {
@@ -124,9 +129,16 @@ export default {
 > 建议HBuilderX升级到1.9+，在manifest.json配置"usingComponents": true, 且对整个项目完整测试
 
 ``` json
-{
+// manifest.json  
+{  
+    // ...  
+    /* App平台特有配置 */  
     "app-plus": {
-        "usingComponents": true
-    }
-}
+        "usingComponents":true  
+    }  
+    /* 微信小程序特有配置 */  
+    "mp-weixin": {
+        "usingComponents":true
+    }  
+}  
 ```

@@ -84,3 +84,8 @@ export default {
   },
 };
 </script>
+<style>
+	.img{
+		display: block;
+	}
+</style>
