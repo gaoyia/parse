@@ -1,5 +1,5 @@
 {
-  "name": "un-parse",
+  "name": "@gaoyia/un-parse",
   "version": "1.0.4",
   "description": "uParse修复版，优化表格和css等",
   "main": "src/un-parse.vue",
