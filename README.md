@@ -1,5 +1,9 @@
 
 ## uParse 修复说明
+1.6
+* 修改文档
+* 首次提交npm并未测试，如有错误请大佬请给出修改建议
+
 1.5 
 
 * 由于需要配置npm名称，又改名了，各位老用户对不住了
@@ -73,7 +77,7 @@
 </template>
 
 <script>
-import uParse from '@/components/gaoyia/parse.vue'
+import uParse from '@/components/gaoyia-parse/parse.vue'
 
 export default {
   components: {
@@ -81,7 +85,63 @@ export default {
   },
   data () {
     return {
-      article: '<div>我是HTML代码</div>'
+        article: `
+			<table border="1">
+				<thead>
+					<tr>
+						<th>表头1</th>
+						<th>表头2</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>body1</td>
+						<td>body2</td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<td>tfoot1</td>
+						<td>tfoot2</td>
+					</tr>
+				</tfoot>
+			</table>
+			<h1>H1</h1>
+			<h2>H2</h2>
+			<h3>H3</h3>
+			<h4>H4</h4>
+			<h5>H5</h5>
+			<h6>H6</h6>
+			<br>换行<br>
+			<i>iii</i>
+			<em>em</em>
+			<strong>strong</strong>
+			<b>bbb</b>
+			<del>del</del>
+			<u>uuu</u>
+			<p>
+				ppp
+				<span>span</span>
+				ppp
+			</p>
+			<ol>
+				<li>li1</li>
+				<li>li2</li>
+				<li>li3</li>
+			</ol>
+			<ul>
+				<li>li1</li>
+				<li>li2</li>
+				<li>li3</li>
+			</ul>
+			<audio src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/audio/music.mp3">
+			您的浏览器不支持 audio 标签。
+			</audio>
+			<video src="https://dcloud-img.oss-cn-hangzhou.aliyuncs.com/guide/uniapp/%E7%AC%AC1%E8%AE%B2%EF%BC%88uni-app%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8D%EF%BC%89-%20DCloud%E5%AE%98%E6%96%B9%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B@20181126.mp4">
+			您的浏览器不支持 audio 标签。
+			</video>
+			<img src="https://res.wx.qq.com/mpres/en_US/htmledition/vue-weui/src/weui-desktopSkin/svg/buildless/bg_logo_primary45cbf6.svg">
+	    `
     }
   },
   methods: {
@@ -97,7 +157,7 @@ export default {
 
 //在APP.vue中引入，否则样式不能生效
 <style>
-@import url("/components/gaoyia/parse.css");
+@import url("/components/gaoyia-parse/parse.css");
 </style>
 ```
 
@@ -112,7 +172,7 @@ npm install marked
 
 ``` js
 import marked from 'marked'
-import uParse from '@/components/gaoyia/parse.vue'
+import uParse from '@/components/gaoyia-parse/parse.vue'
 
 export default {
   components: {
