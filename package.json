@@ -1,0 +1,22 @@
+{
+  "name": "un-parse",
+  "version": "1.0.4",
+  "description": "uParse修复版，优化表格和css等",
+  "main": "src/un-parse.vue",
+  "scripts": {
+    "test": "echo \\\"Error: no test specified\\\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gaoyia/un-parse.git"
+  },
+  "keywords": [
+    "uniParse"
+  ],
+  "author": "gaoyia@qq.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gaoyia/un-parse/issues"
+  },
+  "homepage": "https://github.com/gaoyia/un-parse#readme"
+}
