@@ -1,6 +1,6 @@
 {
   "name": "gaoyia-parse",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "uParse修复版，优化表格和css等",
   "main": "src/parse.vue",
   "scripts": {

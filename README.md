@@ -1,20 +1,26 @@
 
 ## uParse 修复说明
-1.6
+1.0.7
+
+* 修复了uParse外部有边距的情况图片高度不正确的问题
+* 添加默认选项，长按可选择复制文字
+* 简单粗暴的暴露出图片浏览器的配置选项
+
+1.0.6
 * 修改文档
 * 首次提交npm并未测试，如有错误请大佬请给出修改建议
 
-1.5 
+1.0.5 
 
 * 由于需要配置npm名称，又改名了，各位老用户对不住了
 * 添加了git和npm项目地址
 * 段落字体大小改为1em
 * 给图片添加了display:block;修复了在段落中有text-indent的时候图片也缩进的问题
 
-1.3
+1.0.3
 * 修复h1~h6标签无法添加样式的问题
 
-1.1版
+1.0.1版
   发现问题：
 * h1~h6标签无法添加样式
 
@@ -35,6 +41,9 @@
 
 | 名称             | 类型          | 默认值        | 描述               |
 | -----------------|--------------- | ------------- | ----------------  |
+| userSelect       | String         | text          | none,text,all,element是否可选可复制|
+| imgOptions       | Object         | 参照组件源码和uni.previewImage文档| 把previewImage的选项拿出来|
+| parseName        | String         | wxParse       | 定义parse的class-name|
 | loading          | Boolean        | false         | 数据加载状态       |
 | className        | String         | —             | 自定义 class 名称  |
 | content          | String         | —             | 渲染内容           |
