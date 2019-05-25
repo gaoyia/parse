@@ -28,7 +28,7 @@ export default {
 			default:'text'//none |text| all | element
 		},
 		imgOptions:{
-			type:Object,
+			type:[Object,Boolean],
 			default:function(){
 				return {
 					loop: false,
@@ -148,14 +148,17 @@ export default {
 			this.$emit('navigate', href, $event);
 		},
 		preview(src, $event) {
-			if (!this.imageUrls.length) return;
-			uni.previewImage({
-				current: src,
-				urls: this.imageUrls,
-				loop: this.imgOptions.loop,
-				indicator: this.imgOptions.indicator,
-				longPressActions: this.imgOptions.longPressActions
-			});
+			if (!this.imageUrls.length||typeof this.imgOptions==='boolean'){
+				
+			}else{
+				uni.previewImage({
+					current: src,
+					urls: this.imageUrls,
+					loop: this.imgOptions.loop,
+					indicator: this.imgOptions.indicator,
+					longPressActions: this.imgOptions.longPressActions
+				});
+			}
 			this.$emit('preview', src, $event);
 		},
 		removeImageUrl(src) {
