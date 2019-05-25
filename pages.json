@@ -1,0 +1,22 @@
+{
+	"app-plus": {
+		"usingComponents": true
+	},
+	"mp-weixin": {
+		"usingComponents": true
+	},
+	"pages": [
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "gaoyia-parse-demo"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "gaoyia-parse-demo",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	}
+}

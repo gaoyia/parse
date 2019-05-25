@@ -1,10 +1,18 @@
+## uParse 更新说明
+1.0.8（推荐更新）
 
-## uParse 修复说明
+* 去掉了一个计算属性的问题，疑似优化了性能，感觉加载速度更快
+* 1.0.7自己写的bug自己填上
+* 完善了github上的demo，修改了目录结构，npm待测
+
 1.0.7
 
-* 修复了uParse外部有边距的情况图片高度不正确的问题
+* 修复了uParse组件外部有边距时图片高度不正确的问题
 * 添加默认选项，长按可选择复制文字
 * 简单粗暴的暴露出图片浏览器的配置选项
+* 需要完整项目Demo的看这里
+* 调整了P标签的段落间距，但其内部的图片是能连续拼接显示的，例如<p><img/></p><p><img/></p>这两个p标签是没有段落间距的，例如电商的商品图片是需要连续显示的
+
 
 1.0.6
 * 修改文档
@@ -36,14 +44,16 @@
 
 > 支持 Html、Markdown 解析，Fork自: [mpvue-wxParse](https://github.com/F-loat/mpvue-wxParse)
 
-
+## 对于某些html标签不闭合等渲染有问题的
+，如果是PHP推荐结合[https://github.com/phith0n/XssHtml](https://github.com/phith0n/XssHtml)使用
+ $this->m_dom = new DOMDocument();
+ 
 ## 属性
 
 | 名称             | 类型          | 默认值        | 描述               |
 | -----------------|--------------- | ------------- | ----------------  |
 | userSelect       | String         | text          | none,text,all,element是否可选可复制|
 | imgOptions       | Object         | 参照组件源码和uni.previewImage文档| 把previewImage的选项拿出来|
-| parseName        | String         | wxParse       | 定义parse的class-name|
 | loading          | Boolean        | false         | 数据加载状态       |
 | className        | String         | —             | 自定义 class 名称  |
 | content          | String         | —             | 渲染内容           |
@@ -94,63 +104,7 @@ export default {
   },
   data () {
     return {
-        article: `
-			<table border="1">
-				<thead>
-					<tr>
-						<th>表头1</th>
-						<th>表头2</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>body1</td>
-						<td>body2</td>
-					</tr>
-				</tbody>
-				<tfoot>
-					<tr>
-						<td>tfoot1</td>
-						<td>tfoot2</td>
-					</tr>
-				</tfoot>
-			</table>
-			<h1>H1</h1>
-			<h2>H2</h2>
-			<h3>H3</h3>
-			<h4>H4</h4>
-			<h5>H5</h5>
-			<h6>H6</h6>
-			<br>换行<br>
-			<i>iii</i>
-			<em>em</em>
-			<strong>strong</strong>
-			<b>bbb</b>
-			<del>del</del>
-			<u>uuu</u>
-			<p>
-				ppp
-				<span>span</span>
-				ppp
-			</p>
-			<ol>
-				<li>li1</li>
-				<li>li2</li>
-				<li>li3</li>
-			</ol>
-			<ul>
-				<li>li1</li>
-				<li>li2</li>
-				<li>li3</li>
-			</ul>
-			<audio src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/audio/music.mp3">
-			您的浏览器不支持 audio 标签。
-			</audio>
-			<video src="https://dcloud-img.oss-cn-hangzhou.aliyuncs.com/guide/uniapp/%E7%AC%AC1%E8%AE%B2%EF%BC%88uni-app%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8D%EF%BC%89-%20DCloud%E5%AE%98%E6%96%B9%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B@20181126.mp4">
-			您的浏览器不支持 audio 标签。
-			</video>
-			<img src="https://res.wx.qq.com/mpres/en_US/htmledition/vue-weui/src/weui-desktopSkin/svg/buildless/bg_logo_primary45cbf6.svg">
-	    `
+        article: '<p>html代码，具体参见https://github.com/gaoyia/parse/tree/1.0.7/parse-demo中的demo</p>'
     }
   },
   methods: {

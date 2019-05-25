@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "gaoyia-parse-demo",
+  "usingComponents": {
+    "u-parse": "/components/gaoyia-parse/parse"
+  }
+}

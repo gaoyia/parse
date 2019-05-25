@@ -1,0 +1,1 @@
+<view class="{{['wxParse _div',className]}}" style="{{('user-select:'+userSelect)}}" bind:__l="__l"><block wx:for="{{nodes}}" wx:for-item="node" wx:for-index="index" wx:key="index"><block wx:if="{{!loading}}"><block><weixin-parse-template node="{{node}}"></weixin-parse-template></block></block></block></view>

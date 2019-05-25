@@ -1,8 +1,8 @@
 {
   "name": "gaoyia-parse",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "uParse修复版，优化表格和css等",
-  "main": "src/parse.vue",
+  "main": "components/gaoyia-parse/parse.vue",
   "scripts": {
     "test": "echo \\\"Error: no test specified\\\" && exit 1"
   },
@@ -12,7 +12,7 @@
   },
   "keywords": [
     "uniParse",
-		"uParse"
+    "uParse"
   ],
   "author": "gaoyia@qq.com",
   "license": "MIT",

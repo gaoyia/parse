@@ -1,0 +1,1 @@
+<view class="{{[node.classStr]}}" style="{{(node.styleStr)}}" bind:__l="__l"><video class="{{['video-video',node.classStr]}}" src="{{node.attr.src}}"></video></view>

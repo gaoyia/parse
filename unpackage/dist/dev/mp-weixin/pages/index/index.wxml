@@ -1,0 +1,1 @@
+<view class="content" bind:__l="__l"><u-parse content="{{detailData}}" loading="{{loading}}" data-event-opts="{{[['^preview',[['preview']]],['^navigate',[['navigate']]]]}}" bind:preview="__e" bind:navigate="__e"></u-parse></view>
