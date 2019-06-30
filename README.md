@@ -1,4 +1,14 @@
 ## uParse 更新说明
+1.1.0
+
+* 测试了阿里小程序需要开启自定义组件模式，【请看文档最底部】
+* 疑似修复了百度小程序，由于申请appid比较麻烦没有测试，希望有条件的给反馈，
+* 修复video不能有效设置style问题，感谢doterlin
+* imgOptions属性为任意布尔值，则取消图片点击事件
+
+后续预计更新
+* 后续将把github上的项目拆分，插件一个项目，Demo一个项目
+
 1.0.9（推荐更新）
 
 * 去掉了一个计算属性的问题，疑似优化了性能，感觉加载速度更快
@@ -10,8 +20,8 @@
 * 修复了uParse组件外部有边距时图片高度不正确的问题
 * 添加默认选项，长按可选择复制文字
 * 简单粗暴的暴露出图片浏览器的配置选项
-* 需要完整项目Demo的看这里
-* 调整了P标签的段落间距，但其内部的图片是能连续拼接显示的，例如下面这两个p标签是没有段落间距的，例如电商的商品图片是需要连续显示的
+
+* 调整了P标签的段落间距，但其内部的图片是能连续拼接显示的，例如下面这两个p标签是没有段落间距的，例如电商的商品图片是需要连续显示的【阿里小程序无效，如需请自行修改组件内css文件】
 
 ```html
 		<p><img/></p>
@@ -65,7 +75,7 @@
 | startHandler     | Function       | 见源码         | 自定义 parser 函数 |
 | endHandler       | Function       | null          | 自定义 parser 函数 |
 | charsHandler     | Function       | null          | 自定义 parser 函数 |
-| imageProp        | Object         | 见下文        | 图片相关参数        |
+| imageProp        | Object||Boolean         | 见下文        | 图片相关参数，当属性为任意布尔值时取消图片点击事件|
 
 ### 自定义 parser 函数具体介绍
 
@@ -166,6 +176,14 @@ export default {
     /* 微信小程序特有配置 */  
     "mp-weixin": {
         "usingComponents":true
-    }  
+    },
+	/* 支付宝小程序特有配置 */  
+	"mp-alipay" : {
+	    "usingComponents" : true
+	},
+	/* 百度小程序特有配置 （由于没有开发者账号，暂未测试）*/
+	"mp-baidu" : {
+	    "usingComponents" : true
+	}
 }  
 ```

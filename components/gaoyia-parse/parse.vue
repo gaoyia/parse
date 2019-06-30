@@ -127,9 +127,9 @@ export default {
 			this.nodes = results.nodes;
 		},
 		getWidth() {
-				//得到元素的size
-				return new Promise((res, rej) => {
-					uni.createSelectorQuery()
+                return new Promise((res, rej) => {
+					// #ifndef MP-ALIPAY || MP-BAIDU
+						uni.createSelectorQuery()
 						.in(this)
 						.select('.wxParse')
 						.fields(
@@ -140,10 +140,22 @@ export default {
 							data => {
 								res(data.width);
 							}
-						)
-						.exec();
-				});
-		},
+						).exec();
+					// #endif
+					// #ifdef MP-BAIDU
+						swan.createSelectorQuery().select('.wxParse').boundingClientRect(function(rect){
+							rect[0].width
+						}).exec()
+					// #endif
+					// #ifdef MP-ALIPAY
+						my.createSelectorQuery()
+						.select('.wxParse')
+						.boundingClientRect().exec((ret) => {
+							res(ret[0].width);
+						});
+					// #endif
+                });
+        },
 		navigate(href, $event) {
 			this.$emit('navigate', href, $event);
 		},

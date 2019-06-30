@@ -62,5 +62,11 @@
             "urlCheck" : false
         },
         "usingComponents" : true
-    }
+    },
+	"mp-alipay" : {
+	    "usingComponents" : true
+	},
+	"mp-baidu" : {
+	    "usingComponents" : true
+	}
 }
