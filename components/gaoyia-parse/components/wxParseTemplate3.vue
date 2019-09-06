@@ -7,7 +7,7 @@
 		</button>
 		
 		<!--a类型-->
-		<view v-else-if="node.tag == 'a'" @click="wxParseATap" :class="node.classStr" :data-href="node.attr.href" :style="node.styleStr">
+		<view v-else-if="node.tag == 'a'" @click="wxParseATap(node.attr,$event)" :class="node.classStr" :data-href="node.attr.href" :style="node.styleStr">
 			<block v-for="(node, index) of node.nodes" :key="index">
 				<wx-parse-template :node="node" />
 			</block>
@@ -49,7 +49,7 @@
 	</block>
 	
 	<!--判断是否是文本节点-->
-	<block v-else-if="node.node == 'text'">{{node.text}}</block>
+	<block v-else-if="node.node == 'text'">{{(node.text+'').replace(/^\s+|\s+$/g, '')}}</block>
 </template>
 
 <script>
@@ -72,7 +72,7 @@
 			wxParseTable
 		},
 		methods: {
-			wxParseATap(e) {
+			wxParseATap(attr,e) {
 				const {
 					href
 				} = e.currentTarget.dataset;
@@ -81,7 +81,7 @@
 				while(!parent.preview || typeof parent.preview !== 'function') {
 					parent = parent.$parent;
 				}
-				parent.navigate(href, e);
+				parent.navigate(href, e, attr);
 			},
 		},
 	};

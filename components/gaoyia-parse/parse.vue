@@ -156,7 +156,8 @@ export default {
 					// #endif
                 });
         },
-		navigate(href, $event) {
+		navigate(href, $event, attr) {
+			console.log(href,attr);
 			this.$emit('navigate', href, $event);
 		},
 		preview(src, $event) {
@@ -181,7 +182,8 @@ export default {
 	// 父组件中提供
 	provide() {
 		return {
-			parseWidth: this.wxParseWidth
+			parseWidth: this.wxParseWidth,
+			parseSelect: this.userSelect
 			// 提示：provide 和 inject 绑定并不是可响应的。这是刻意为之的。然而，如果你传入了一个可监听的对象，那么其对象的属性还是可响应的。
 		};
 	},

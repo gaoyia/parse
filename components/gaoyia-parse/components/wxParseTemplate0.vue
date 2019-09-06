@@ -7,7 +7,7 @@
 		</button>
 		
 		<!--a类型-->
-		<view v-else-if="node.tag == 'a'" @click="wxParseATap" :class="node.classStr" :data-href="node.attr.href" :style="node.styleStr">
+		<view v-else-if="node.tag == 'a'" @click="wxParseATap(node.attr,$event)" :class="node.classStr" :data-href="node.attr.href" :style="node.styleStr">
 			<block v-for="(node, index) of node.nodes" :key="index">
 				<wx-parse-template :node="node" />
 			</block>
@@ -21,7 +21,7 @@
 		</view>
 		
 		<!--table类型-->
-		<wx-parse-table v-else-if="node.tag == 'table'" :node="node" />
+		<wx-parse-table v-else-if="node.tag == 'table'" :style="node.styleStr" :node="node" />
 		
 		<!--br类型-->
 		<!-- #ifndef H5 -->
@@ -38,29 +38,39 @@
 		<wx-parse-audio :node="node" v-else-if="node.tag == 'audio'"/>
 	
 		<!--img类型-->
-		<wx-parse-img :node="node" v-else-if="node.tag == 'img'"/>
+		<wx-parse-img :node="node" v-else-if="node.tag == 'img'" :style="node.styleStr"/>
 	
 		<!--其他标签-->
 		<view v-else :class="node.classStr" :style="node.styleStr">
 			<block v-for="(node, index) of node.nodes" :key="index">
-				<wx-parse-template :node="node" />
+				<wx-parse-template :node="node"/>
 			</block>
 		</view>
 	</block>
 	
 	<!--判断是否是文本节点-->
-	<block v-else-if="node.node == 'text'">{{node.text}}</block>
+	<block v-else-if="node.node == 'text'">{{(node.text+'').replace(/^\s+|\s+$/g, '')}}</block>
 </template>
 
 <script>
+	// #ifdef APP-PLUS | H5
+	import wxParseTemplate from './wxParseTemplate0';
+	// #endif
+	// #ifdef MP
 	import wxParseTemplate from './wxParseTemplate1';
+	// #endif
 	import wxParseImg from './wxParseImg';
 	import wxParseVideo from './wxParseVideo';
 	import wxParseAudio from './wxParseAudio';
 	import wxParseTable from './wxParseTable';
 
 	export default {
+		// #ifdef APP-PLUS | H5
+		name: 'wxParseTemplate',
+		// #endif
+		// #ifdef MP
 		name: 'wxParseTemplate0',
+		// #endif
 		props: {
 			node: {},
 		},
@@ -72,7 +82,7 @@
 			wxParseTable
 		},
 		methods: {
-			wxParseATap(e) {
+			wxParseATap(attr,e) {
 				const {
 					href
 				} = e.currentTarget.dataset;// TODO currentTarget才有dataset
@@ -81,7 +91,7 @@
 				while(!parent.preview || typeof parent.preview !== 'function') {// TODO 遍历获取父节点执行方法
 					parent = parent.$parent;
 				}
-				parent.navigate(href, e);
+				parent.navigate(href, e, attr);
 			},
 		}
 	};

@@ -12,7 +12,7 @@
 		},
 		data() {
 			return {
-				detailData: '正在加载数据，模拟网络延迟2秒',
+				detailData: '正在加载数据，模拟网络延迟2秒😝',
 				loading:false//开启loading不显示默认值
 			}
 		},
@@ -20,6 +20,9 @@
 			let that = this;
 			setTimeout(function(){
 				that.detailData = `
+				正常<sup>上标</sup><br /> 
+				正常<sub>下标</sub><br /> 
+					emoji😝<br /> 
 					<table border="1">
 					  <thead>
 						<tr>
@@ -44,19 +47,14 @@
 						</tr>
 					  </tfoot>
 					</table>
-					<h1>H1</h1>
-					<h2>H2</h2>
-					<h3>H3</h3>
-					<h4>H4</h4>
-					<h5>H5</h5>
-					<h6>H6</h6>
-					<br>换行<br>
-					<i>iii</i>
-					<em>em</em>
-					<strong>strong</strong>
-					<b>bbb</b>
-					<del>del</del>
-					<u>uuu</u>
+					<a href='https://www.baidu.com' onclick='void(0)'>a标签</a>
+					<br>换行的中 间  有       几个空格<br>
+					<i>iii</i><br>
+					<em>em</em><br>
+					<strong>strong</strong><br>
+					<b>bbb</b><br>
+					<del>del</del><br>
+					<u>uuu</u><br>
 					<p>
 						ppp
 						<span>span</span>
@@ -70,7 +68,7 @@
 					</p>
 					
 					<hr>
-					<h3>下面是两张连在一起的图片，就算在p标签内也会把图片拼接在一起。比如某些商品详情图片都是拼接在一起的</h3>
+					
 					<p>
 						<img src="https://cdn.multilingualres.hr.tencent.com/careersmlr/cityinfo_sz2.jpg">
 					</p>
@@ -97,6 +95,12 @@
 					<video src="https://dcloud-img.oss-cn-hangzhou.aliyuncs.com/guide/uniapp/%E7%AC%AC1%E8%AE%B2%EF%BC%88uni-app%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8D%EF%BC%89-%20DCloud%E5%AE%98%E6%96%B9%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B@20181126.mp4">
 					您的浏览器不支持 audio 标签。
 					</video>
+					<h1>H1</h1>
+					<h2>H2</h2>
+					<h3>H3</h3>
+					<h4>H4</h4>
+					<h5>H5</h5>
+					<h6>H6</h6>
 				`
 				that.loading = false;
 			},3000)
