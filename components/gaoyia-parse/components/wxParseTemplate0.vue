@@ -21,7 +21,7 @@
 		</view>
 		
 		<!--table类型-->
-		<wx-parse-table v-else-if="node.tag == 'table'" :style="node.styleStr" :node="node" />
+		<wx-parse-table v-else-if="node.tag == 'table'" :class="node.classStr" :style="node.styleStr" :node="node" />
 		
 		<!--br类型-->
 		<!-- #ifndef H5 -->
@@ -49,7 +49,8 @@
 	</block>
 	
 	<!--判断是否是文本节点-->
-	<block v-else-if="node.node == 'text'">{{(node.text+'').replace(/^\s+|\s+$/g, '')}}</block>
+	<block v-else-if="node.node == 'text'"><text decode="true">{{node.text.replace(/\n/g, '\n')}}</text></block>
+	<!-- <block v-else-if="node.node == 'text'">{{node.text}}</block> -->
 </template>
 
 <script>
@@ -92,7 +93,7 @@
 					parent = parent.$parent;
 				}
 				parent.navigate(href, e, attr);
-			},
+			}
 		}
 	};
 </script>
