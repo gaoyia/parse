@@ -12,7 +12,7 @@
  * 请在全局下引入该文件，@import '/static/wxParse.css';
  */
 .wxParse {
-	user-select:none;
+  user-select: text;
 	width: 100%;
 	font-family: Helvetica, "PingFangSC", 'Microsoft Yahei', '微软雅黑', Arial, sans-serif;
 	color: #333;
