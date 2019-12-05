@@ -1,25 +1,14 @@
 ## uParse 更新说明
 
-# uParse-提问反馈交流群 83254601【非uniapp官方】，目前需要除了微信支付宝小程序以外的小伙伴帮忙测试，和远程调试
+## uParse-提问反馈交流群 83254601【非uniapp官方】
 
-# 暂时请勿从 npm安装，未维护
+1.2.0 修复了一些历史遗留问题
 
-1.1.1
+关于组件的一些说明
 
-* 删除p标签的padding-bottom: -1em;   ps:想了想还是不能用一个bug修复另一个bug，有需求的自己改
-* 通过条件编译判断，如果是APP和H5则使用组件递归，小程序则用多个组件方式渲染html，解决部分平台html层级较深无法渲染问题
-* 修复了小程序表格没有css的问题，感谢plfqz
-* 给a标签增加了attr获取，例如：获取 onclick="void(0)"
-* 修复了html中多个空格的问题 （css增加了white-space: pre-wrap，修剪了text节点的左右两端空白字符串）
-* 目前测试上下标emoji正常
+[关于组件的一些说明：https://ask.dcloud.net.cn/article/36531](https://ask.dcloud.net.cn/article/36531)
 
 > 本组件修复自官方uParse
-
-* 修复了组件中添加空白view的情况
-* 修复了引入样式的的文档错误
-* 修复了表格无法正确解析的问题。
-* 优化了一些css样式
-* 再次强调一下->建议HBuilderX升级到1.9+，在manifest.json配置"usingComponents": true, 且对整个项目完整测试!
 
 ## uParse 适用于 uni-app/mpvue 的富文本解析组件
 
@@ -128,29 +117,4 @@ export default {
     }
   }
 }
-```
-
-> 建议HBuilderX升级到1.9+，在manifest.json配置"usingComponents": true, 且对整个项目完整测试
-
-``` json
-// manifest.json  
-{  
-    // ...  
-    /* App平台特有配置 */  
-    "app-plus": {
-        "usingComponents":true  
-    }  
-    /* 微信小程序特有配置 */  
-    "mp-weixin": {
-        "usingComponents":true
-    },
-	/* 支付宝小程序特有配置 */  
-	"mp-alipay" : {
-	    "usingComponents" : true
-	},
-	/* 百度小程序特有配置 （由于没有开发者账号，暂未测试）*/
-	"mp-baidu" : {
-	    "usingComponents" : true
-	}
-}  
 ```

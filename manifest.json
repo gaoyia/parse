@@ -2,8 +2,8 @@
     "name" : "parse-demo",
     "appid" : "",
     "description" : "",
-    "versionName" : "1.1.5",
-    "versionCode" : "115",
+    "versionName" : "1.2.0",
+    "versionCode" : "120",
     "transformPx" : false,
     "app-plus" : {
         /* 5+App特有相关 */

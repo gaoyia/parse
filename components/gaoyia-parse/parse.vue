@@ -160,10 +160,13 @@ import wxParseTemplate from './components/wxParseTemplate0';
 						).exec();
 					// #endif
 					// #ifdef MP-BAIDU
-					return new Promise((res, rej) => {
-						swan.createSelectorQuery().select('.wxParse').boundingClientRect(function(rect) {
-							res(rect.width)
-						}).exec()
+					const query = swan.createSelectorQuery();
+					query.select('.wxParse').boundingClientRect();
+					query.exec(obj => {
+						const rect = obj[0]
+						if (rect) {
+							res(rect.width);
+						}
 					});
 					// #endif
 					// #ifdef MP-ALIPAY

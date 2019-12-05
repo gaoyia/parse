@@ -1,7 +1,7 @@
 {
   "name": "gaoyia-parse",
-  "version": "1.1.0",
-  "description": "uParse修复版，优化表格和css等",
+  "version": "1.2.0",
+  "description": "uParse修复版",
   "main": "components/gaoyia-parse/parse.vue",
   "scripts": {
     "test": "echo \\\"Error: no test specified\\\" && exit 1"

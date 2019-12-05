@@ -102,18 +102,34 @@ return str;
 function strcharacterDiscode(str) {
 // 加入常用解析
 
-str = str.replace(/&nbsp;|&#32;|&#x20;/g, "&nbsp;");
-str = str.replace(/&ensp;|&#8194;|&#x2002;/g, '&ensp;');
+// str = str.replace(/&nbsp;|&#32;|&#x20;/g, "&nbsp;");
+// str = str.replace(/&ensp;|&#8194;|&#x2002;/g, '&ensp;');
+// str = str.replace(/&#12288;|&#x3000;/g, '<span class=\'spaceshow\'>　</span>');
+// str = str.replace(/&emsp;|&#8195;|&#x2003;/g, '&emsp;');
+// str = str.replace(/&quot;|&#34;|&#x22;/g, "\"");
+// str = str.replace(/&apos;|&#39;|&#x27;/g, "&apos;");
+// str = str.replace(/&acute;|&#180;|&#xB4;/g, "´");
+// str = str.replace(/&times;|&#215;|&#xD7;/g, "×");
+// str = str.replace(/&divide;|&#247;|&#xF7;/g, "÷");
+// str = str.replace(/&amp;|&#38;|&#x26;/g, '&amp;');
+// str = str.replace(/&lt;|&#60;|&#x3c;/g, '&lt;');
+// str = str.replace(/&gt;|&#62;|&#x3e;/g, '&gt;');
+
+
+
+
+str = str.replace(/&nbsp;|&#32;|&#x20;/g, "<span class='spaceshow'> </span>");
+str = str.replace(/&ensp;|&#8194;|&#x2002;/g, '<span class=\'spaceshow\'> </span>');
 str = str.replace(/&#12288;|&#x3000;/g, '<span class=\'spaceshow\'>　</span>');
-str = str.replace(/&emsp;|&#8195;|&#x2003;/g, '&emsp;');
+str = str.replace(/&emsp;|&#8195;|&#x2003;/g, '<span class=\'spaceshow\'> </span>');
 str = str.replace(/&quot;|&#34;|&#x22;/g, "\"");
-str = str.replace(/&apos;|&#39;|&#x27;/g, "&apos;");
+str = str.replace(/&quot;|&#39;|&#x27;/g, "'");
 str = str.replace(/&acute;|&#180;|&#xB4;/g, "´");
 str = str.replace(/&times;|&#215;|&#xD7;/g, "×");
 str = str.replace(/&divide;|&#247;|&#xF7;/g, "÷");
-str = str.replace(/&amp;|&#38;|&#x26;/g, '&amp;');
-str = str.replace(/&lt;|&#60;|&#x3c;/g, '&lt;');
-str = str.replace(/&gt;|&#62;|&#x3e;/g, '&gt;');
+str = str.replace(/&amp;|&#38;|&#x26;/g, '&');
+str = str.replace(/&lt;|&#60;|&#x3c;/g, '<');
+str = str.replace(/&gt;|&#62;|&#x3e;/g, '>');
 return str;
 }
 

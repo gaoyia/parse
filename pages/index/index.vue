@@ -1,15 +1,16 @@
 <template>
-	<view class="content">
+	<view class="content" >
 		<text>  fdafdafdafdsa
 		
 		fdafdsafdsa
 		fasd</text>
-			<view @click="load()">加载数据</view>
+			<view @click="load()">加载数据2</view>
 			<br>
 			<view @click="unload()">卸载数据</view>
 			<br>
-			
-		<u-parse :content="detailData" :loading="loading" @preview="preview" @navigate="navigate" />
+			<view v-if="test">
+				<u-parse :content="detailData" :loading="loading" @preview="preview" @navigate="navigate" />
+			</view>
 	</view>
 </template>
 <script>
@@ -21,7 +22,8 @@
 		},
 		data() {
 			return {
-				detailData: '<p><span style="font-size:28px"><span style="line-height:1.75"><span style="letter-spacing:2px">大威德群奥多</span></span></span></p>',
+				test:false,
+				detailData: '<p></p>',
 				loading:false//开启loading不显示默认值
 			}
 		},
@@ -40,10 +42,90 @@
 			  // do something
 			},
 			unload(){
+				this.test = false
 				this.detailData = ``
 			},
 			load(){
+				this.test = true
 				this.detailData = `
+				<table border="1">
+  <thead>
+    <tr>
+      <th>表头1</th>
+      <th>表头2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>body1</td>
+      <td>body2</td>
+    </tr>
+    <tr>
+      <td>body3</td>
+      <td>body4</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td>tfoot1</td>
+      <td>tfoot2</td>
+    </tr>
+  </tfoot>
+</table>
+	<h1>H1</h1>
+	<h2>H2</h2>
+	<h3>H3</h3>
+	<h4>H4</h4>
+	<h5>H5</h5>
+    <h6>H6</h6>
+    <br>换行<br>
+    <i>iii</i>
+    <em>em</em>
+    <strong>strong</strong>
+    <b>bbb</b>
+    <del>del</del>
+    <u>uuu</u>
+    <p>
+        ppp
+        <span>span</span>
+        ppp
+    </p>
+	<p>
+		这是两个连在一起的段落，P标签之间有段落间距。~~~~~~~~~这是两个连在一起的段落，P标签之间有段落间距。
+	</p>
+	<p>
+		这是两个连在一起的段落，P标签之间有段落间距。~~~~~~~~~这是两个连在一起的段落，P标签之间有段落间距。
+	</p>
+	
+	<hr>
+	<h3>下面是两张连在一起的图片，就算在p标签内也会把图片拼接在一起。比如某些商品详情图片都是拼接在一起的</h3>
+	<p>
+		<img src="https://cdn.multilingualres.hr.tencent.com/careersmlr/cityinfo_sz2.jpg">
+	</p>
+	<p>
+		<img src="https://cdn.multilingualres.hr.tencent.com/careersmlr/cityinfo_sz3.jpg">
+	</p>
+	<p>
+		<img src="https://cdn.multilingualres.hr.tencent.com/careersmlr/cityinfo_sz4.jpg" style="padding-left:10px">
+	</p>
+	<h3>上面是一张自带padding的图片，，感觉还有些小问题后续需要调整</h3>
+    <ol>
+        <li>li1</li>
+        <li>li2</li>
+        <li>li3</li>
+    </ol>
+    <ul>
+        <li>li1</li>
+        <li>li2</li>
+        <li>li3</li>
+    </ul>
+    <audio src="https://img-cdn-qiniu.dcloud.net.cn/uniapp/audio/music.mp3">
+    您的浏览器不支持 audio 标签。
+    </audio>
+    <video src="https://dcloud-img.oss-cn-hangzhou.aliyuncs.com/guide/uniapp/%E7%AC%AC1%E8%AE%B2%EF%BC%88uni-app%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8D%EF%BC%89-%20DCloud%E5%AE%98%E6%96%B9%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B@20181126.mp4">
+    您的浏览器不支持 audio 标签。
+    </video>
+				<img src="https://www.baidu.com/img/baidu_jgylogo3.gif"/>
 				1&nbsp;&nbsp;&nbsp;1
 				<p>2&nbsp;&nbsp;&nbsp;2</p>
 				<code>{
